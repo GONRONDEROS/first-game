@@ -15,3 +15,7 @@ function getComputerChoice() {
         }
 };
 
+let playerChoice = prompt("The fate of the world depends on your choice...choose wisely or you will die!!!!");
+
+
+

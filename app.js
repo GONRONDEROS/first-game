@@ -1,4 +1,5 @@
-//Computer choice function 
+///////Computer choice function//////// 
+
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 };
@@ -15,26 +16,25 @@ function getComputerChoice(max) {
             return choices[2]
         }
 };
-// 
+////////////////////////////////////// 
 
-//Player function + game
-//The fate of the world depends on your choice...choose wisely or you will die!!!!
-let playerChoice = prompt("EL DESTINO DEL UNIVERSO DEPENDE DE TU ELECCION....ELIGE SABIAMENTE O EL MUNDO MORIRA");
-let computerChoice = getComputerChoice(3);
+//////Player function + game
+let playerSelection = prompt("EL DESTINO DEL UNIVERSO DEPENDE DE TU ELECCION....ELIGE SABIAMENTE O EL MUNDO MORIRA").toLowerCase();
+let computerSelection = getComputerChoice(3).toLowerCase();
 
-function game(playerChoice, computerChoice) {
+function playRound(playerSelection, computerSelection) {
 
-    if (playerChoice.toLowerCase() === choices[0] && computerChoice.toLowerCase() === choices[2]) {
-        return "TU HAS GANADO! " + playerChoice + " LE GANA A " + computerChoice + ". LA HUMANIDAD TENDRA UN FUTURO GRACIAS A TU VALENTIA!!!";
-    } else if (playerChoice.toLowerCase() === choices[1] && computerChoice.toLowerCase() === choices[0]) {
-        return "TU HAS GANADO! " + playerChoice + " LE GANA A " + computerChoice + ". LA HUMANIDAD TENDRA UN FUTURO GRACIAS A TU VALENTIA!!!";
-    } else if (playerChoice.toLowerCase() === choices[2] && computerChoice.toLowerCase() === choices[1]) {
-        return "TU HAS GANADO! " + playerChoice + " LE GANA A " + computerChoice + ". LA HUMANIDAD TENDRA UN FUTURO GRACIAS A TU VALENTIA!!!"; 
-    } else if (playerChoice.toLowerCase() === computerChoice.toLowerCase()) {
-        return "ES UN EMPATE. TANTO TU COMO LA COMPUTADORA HAN ELEGIDO " + computerChoice + ". INTENTA DE NUEVO SI TE ANIMAS..."
+    if ((playerSelection === choices[0] && computerSelection === choices[2]) || (playerSelection === choices[1] && computerSelection === choices[0]) || (playerSelection === choices[2] && computerSelection === choices[1]) ) {
+
+        return "TU HAS GANADO! " + playerSelection.toUpperCase() + " LE GANA A " + computerSelection.toUpperCase() + ". LA HUMANIDAD TENDRA UN FUTURO GRACIAS A TU VALENTIA!!!";
+
+    } else if (playerSelection === computerSelection) {
+
+        return "ES UN EMPATE. TANTO TU COMO LA COMPUTADORA HAN ELEGIDO " + computerSelection.toUpperCase() + ". INTENTA DE NUEVO SI TE ANIMAS...";
+
     } else {
-        return "LA COMPUTADORA A ELEGIDO " + computerChoice + ". HAS PERDIDO. LA HUMANIDAD MORIRAAAAAAAA!!!!"
-    }
 
+        return "LA COMPUTADORA A ELEGIDO " + computerSelection.toUpperCase() + ". HAS PERDIDO. LA HUMANIDAD MORIRAAAAAAAA!!!!";
+    }
 }
 

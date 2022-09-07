@@ -1,3 +1,6 @@
+/////Choices/////
+let choices = ["piedra", "papel", "tijera"];
+
 ///////Total Score/////////
 let humanScore=0;
 let computerScore=0;
@@ -11,8 +14,6 @@ const empatar= "***ES UN EMPATE. INTENTA DE NUEVO SI TE ANIMAS...***";
 //// Round ////
 
 function playRound(playerSelection,  computerDecision) {
-        
-    let choices = ["piedra", "papel", "tijera"];
 
     if ((playerSelection.toLowerCase() === choices[0] && computerDecision === choices[2]) || (playerSelection.toLowerCase() === choices[1] && computerDecision === choices[0]) || (playerSelection.toLowerCase() === choices[2] && computerDecision === choices[1]) ) {
 

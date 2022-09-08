@@ -20,9 +20,9 @@ function computerPlay(){
 };
 
 /////buttons/////
-const rockButton = document.querySelector('.rock');
-const paperButton = document.querySelector('.paper');
-const scissorsButton = document.querySelector('.scissor');
+const rockButton = document.querySelector('#rock');
+const paperButton = document.querySelector('#paper');
+const scissorsButton = document.querySelector('#scissor');
 const outcomeDiv = document.querySelector('.outcome');
 const resultDiv = document.querySelector('.results');
 const playerScoreSpan = document.querySelector('.player-score');
@@ -39,7 +39,7 @@ function playRound(playerSelection,  computerDecision) {
         // console.log("TU HAS ELEGIDO " + playerSelection.toUpperCase());
         // console.log("LA COMPUTADORA HA ELEGIDO " + computerDecision.toUpperCase());
         const p = document.createElement('p');
-        p.innerText = `HAS ELEGIDO ${playerSelection} Y LA COMPUTADORA ${computerDecision}\n` + ganar;
+        p.innerText = `HAS ELEGIDO ${playerSelection.toUpperCase()} Y LA COMPUTADORA ${computerDecision.toUpperCase()}\n` + ganar;
         outcomeDiv.appendChild(p);
         //console.log(score);
         
@@ -49,8 +49,8 @@ function playRound(playerSelection,  computerDecision) {
         // let score = "HUMANIDAD = " + humanScore + " || MAQUINAS = " + computerScore + " || EMPATES = " + tieScore;
         // console.log("TU HAS ELEGIDO " + playerSelection.toUpperCase());
         // console.log("LA COMPUTADORA HA ELEGIDO " + computerDecision.toUpperCase());
-        const p = document.createElement('p')
-        p.innerText = `HAS ELEGIDO ${playerSelection} Y LA COMPUTADORA ${computerDecision}\n` + empatar;
+        const p = document.createElement('p');
+        p.innerText = `HAS ELEGIDO ${playerSelection.toUpperCase()} Y LA COMPUTADORA ${computerDecision.toUpperCase()}\n` + empatar;
         outcomeDiv.appendChild(p)
         //console.log(score);
 
@@ -61,7 +61,7 @@ function playRound(playerSelection,  computerDecision) {
         // console.log("TU HAS ELEGIDO " + playerSelection.toUpperCase());
         // console.log("LA COMPUTADORA HA ELEGIDO " + computerDecision.toUpperCase());
         const p = document.createElement('p')
-        p.innerText = `HAS ELEGIDO ${playerSelection} Y LA COMPUTADORA ${computerDecision}\n` + perder;
+        p.innerText = `HAS ELEGIDO ${playerSelection.toUpperCase()} Y LA COMPUTADORA ${computerDecision.toUpperCase()}\n` + perder;
         outcomeDiv.appendChild(p)
         // console.log(score);
 
@@ -71,13 +71,13 @@ function playRound(playerSelection,  computerDecision) {
 
 const updateScore = (humanScore, computerScore) => {
     playerScoreSpan.innerText = `Humanidad: ${humanScore}  `;
-    computerScoreSpan.innerText = `|| Maquinas: ${computerScore}`;
+    computerScoreSpan.innerText = `Maquinas: ${computerScore}`;
 };
 
 const checkWinner = (humanScore, computerScore) => {
     if (humanScore === 5){
         const h2 = document.createElement('h2');
-        h2.innerText = `HAS GANADO LA GUERRA ${humanScore} a ${computerScore}!!! POR FIN HEMOS DERROTADO A LAS MAQUINAS DEFINITIVAMENTE!!!!!!!`;;
+        h2.innerText = `HAS GANADO LA GUERRA ${humanScore} a ${computerScore}!!! POR FIN HEMOS DERROTADO A LAS MAQUINAS!!!!!!!`;;
         resultDiv.appendChild(h2);
 
     }
@@ -90,7 +90,7 @@ const checkWinner = (humanScore, computerScore) => {
 
 rockButton.addEventListener('click', () => {
     const computerDecision = computerPlay();
-    const playerSelection = 'piedra';
+    const playerSelection = choices[0];
     playRound(playerSelection, computerDecision);
     updateScore(humanScore, computerScore);
     checkWinner(humanScore, computerScore);
@@ -99,7 +99,7 @@ rockButton.addEventListener('click', () => {
 
 paperButton.addEventListener('click', () => {
     const computerDecision = computerPlay();
-    const playerSelection = 'papel';
+    const playerSelection = choices[1];
     playRound(playerSelection, computerDecision);
     updateScore(humanScore, computerScore);
     checkWinner(humanScore, computerScore);
@@ -108,8 +108,9 @@ paperButton.addEventListener('click', () => {
 
 scissorsButton.addEventListener('click', () => {
     const computerDecision = computerPlay();
-    const playerSelection = 'tijera';
+    const playerSelection = choices[2];
     playRound(playerSelection, computerDecision);
+    updateScore(humanScore, computerScore);
     checkWinner(humanScore, computerScore);
 
 });

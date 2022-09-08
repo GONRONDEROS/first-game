@@ -1,0 +1,56 @@
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 400px;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.running-score{
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+}
+
+.player-score,
+.computer-score {
+    font-size: 24px;
+    color: blue;
+}
+
+.outcome{
+    max-width: 50%;
+    justify-content: center;
+    margin-top: 20px;
+    border: solid 2px blue;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    padding: 15px;
+    background-color: darkgray;
+}
+
+h3.title{
+    font-size: 32px;
+    color:blue;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.results{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 36px;
+}
+
